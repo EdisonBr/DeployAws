@@ -83,7 +83,7 @@ uwsgi_param  SERVER_PORT        $server_port;
 uwsgi_param  SERVER_NAME        $server_name;
 ```
 
-* Create NGINX config file at /etc/nginx/sites/available
+* Create NGINX config file at cd /etc/nginx/sites-available/
 ```
 upstream django {
     server unix:///home/ubuntu/django-apache-nginx-uwsgi-vps-ubuntu/mysite.sock; 
@@ -91,22 +91,22 @@ upstream django {
 
 server {
     listen      8000;
-    server_name example.com;
+    server_name 18.221.216.221;
     charset     utf-8;
 
     client_max_body_size 75M; 
 
     location /media  {
-        alias /home/ubuntu/django-apache-nginx-uwsgi-vps-ubuntu/media; 
+        alias /home/ubuntu/DevEnery/media; 
     }
 
     location /static {
-        alias /home/ubuntu/django-apache-nginx-uwsgi-vps-ubuntu/static;
+        alias /home/ubuntu/DevEnery/static;
     }
 
     location / {
         uwsgi_pass  django;
-        include     /home/ubuntu/django-apache-nginx-uwsgi-vps-ubuntu/uwsgi_params; 
+        include     /home/ubuntu/DevEnery/uwsgi_params; 
     }
 }
 ```
