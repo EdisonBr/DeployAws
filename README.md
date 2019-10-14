@@ -123,18 +123,18 @@ sudo ln -s /etc/nginx/sites-available/DevEnery.conf
 * Download an image to media folder and test
 
 * Run and test using Unix sockets
-```uwsgi --socket mysite.sock --module mysite.wsgi --chmod-socket=666```
+```uwsgi --socket mysite.sock --module energy.wsgi --chmod-socket=666```
 
-* Create the ini file
-
+* Create the ini file na Pasta do Projeto ao lado do manage.py 
+ sudo vim uwsgi.ini
 ```
 [uwsgi]
-chdir           = /home/ubuntu/django-apache-nginx-uwsgi-vps-ubuntu
-module          = django_vps.wsgi
+chdir           = /home/ubuntu/DevEnery
+module          = energy.wsgi
 home            = /home/ubuntu/venv
 master          = true
 processes       = 10
-socket          = /home/ubuntu/django-apache-nginx-uwsgi-vps-ubuntu/mysite.sock
+socket          = /home/ubuntu/DevEnery/mysite.sock
 vacuum          = true
 chmod-socket    = 666
 ```
@@ -147,7 +147,7 @@ chmod-socket    = 666
 ```
 sudo mkdir /etc/uwsgi
 sudo mkdir /etc/uwsgi/vassals
-sudo ln -s /home/ubuntu/django-apache-nginx-uwsgi-vps-ubuntu/mysite_uwsgi.ini /etc/uwsgi/vassals/
+sudo ln -s /home/ubuntu/DevEnery/uwsgi.ini /etc/uwsgi/vassals/
 uwsgi --emperor /etc/uwsgi/vassals --uid www-data --gid www-data
 ```
 ## Setup systemctl to start on boot
