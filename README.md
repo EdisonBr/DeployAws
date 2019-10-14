@@ -157,7 +157,7 @@ https://uwsgi-docs.readthedocs.io/en/latest/Systemd.html
 
 cd /etc/systemd/system/
 
-sudo vim djangovps.service
+sudo vim energy.service
 
 
 ======
@@ -234,3 +234,7 @@ e2/sites-enabled/
 ```
 
 * Edit default vhost to your extra website
+ Reiniciar o nginx
+ sudo /etc/init.d/nginx restart
+ Reiniciar o apache
+ sudo systemctl restart apache2
