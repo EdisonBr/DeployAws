@@ -84,9 +84,11 @@ uwsgi_param  SERVER_NAME        $server_name;
 ```
 
 * Create NGINX config file at cd /etc/nginx/sites-available/
+ criar arquivo sudo vim  DevEnery.conf
+ Inserir codigo abaixo
 ```
 upstream django {
-    server unix:///home/ubuntu/django-apache-nginx-uwsgi-vps-ubuntu/mysite.sock; 
+    server unix:///home/ubuntu/DevEnery/mysite.sock; 
 }
 
 server {
@@ -110,9 +112,10 @@ server {
     }
 }
 ```
-
+ Go to  sites-enabled
 * Create a symlink on sites-enabled
-sudo ln -s ~/path/to/your/mysite/mysite_nginx.conf /etc/nginx/sites-enabled/
+
+sudo ln -s /etc/nginx/sites-available/DevEnery.conf 
 
 * Restart Nginx
 ```sudo /etc/init.d/nginx restart```
